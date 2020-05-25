@@ -1,0 +1,10 @@
+2020-05-23 22:10:28 下午 [Thread: http-nio-8701-exec-2][ Class:java.lang.Class >> Method: com.xjzhang.community.controller.OauthController.callback(OauthController.java:38) ]
+INFO:access_token=5fbb58e02c1bb39d27965d65021d95789882d623&scope=user&token_type=bearer
+2020-05-23 22:26:38 下午 [Thread: http-nio-8701-exec-2][ Class:java.lang.Class >> Method: com.xjzhang.community.controller.OauthController.callback(OauthController.java:41) ]
+INFO:{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3/users/#get-the-authenticated-user"}
+2020-05-23 22:29:20 下午 [Thread: http-nio-8701-exec-2][ Class:java.lang.Class >> Method: com.xjzhang.community.controller.OauthController.callback(OauthController.java:41) ]
+INFO:access_token
+2020-05-23 22:29:21 下午 [Thread: http-nio-8701-exec-2][ Class:java.lang.Class >> Method: com.xjzhang.community.controller.OauthController.callback(OauthController.java:43) ]
+INFO:{"message":"Bad credentials","documentation_url":"https://developer.github.com/v3"}
+2020-05-23 22:30:22 下午 [Thread: http-nio-8701-exec-2][ Class:java.lang.Class >> Method: com.xjzhang.community.controller.OauthController.callback(OauthController.java:41) ]
+INFO:34e20efe34a2a7e33b6a9c9c54cd6153e48c5413
