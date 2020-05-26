@@ -1,0 +1,16 @@
+.common_margin{
+    margin: 20px 40px 20px 40px;
+}
+
+body {
+    background-color: #efefef;
+}
+
+.content{
+    background-color: #ffffff;
+}
+
+.sumbit_button {
+    float: right;
+    margin-bottom: 15px;
+}
