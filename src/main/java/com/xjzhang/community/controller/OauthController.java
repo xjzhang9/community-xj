@@ -19,6 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * @author xjzhang
+ * @data 2020/05/27
+ */
 @Controller
 public class OauthController {
     private static Logger logger = Logger.getLogger(OauthController.class.getClass());
@@ -41,7 +45,6 @@ public class OauthController {
         githubOauthDto.setClient_secret(client_secret);
         githubOauthDto.setState(state);
 
-
         String body = githubOauthProvider.getAccessToken(githubOauthDto);
         String[] bodys = body.split("&");
         String accessToken = bodys[0].split("=")[1];
@@ -49,9 +52,13 @@ public class OauthController {
         String userInfo = githubOauthProvider.getUserInfo(accessToken);
         logger.info(userInfo);
 
+        GithubOauthUserDto githubOauthUserDto = JSON.parseObject(userInfo, new TypeReference<GithubOauthUserDto>() {});
+        if (githubOauthDto != null) {
+
+        }
         // 设置session供前端检查登录状态
         HttpSession session = req.getSession();
-        session.setAttribute("userinfo", JSON.parseObject(userInfo, new TypeReference<GithubOauthUserDto>() {}));
+        session.setAttribute("userinfo", );
 
         return "redirect:/";
     }

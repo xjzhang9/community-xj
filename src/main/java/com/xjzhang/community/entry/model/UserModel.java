@@ -7,27 +7,27 @@ public class UserModel {
     /**
      *  账号
      */
-    private String accountId;
+    protected String accountId;
 
     /**
      *  用户名
      */
-    private String name;
+    protected String name;
 
     /**
      * token
      */
-    private String token;
+    protected String token;
 
     /**
      * 个人简介
      */
-    private String ids;
+    protected String ids;
 
     /**
      * 创建时间
      */
-    private String createDate;
+    protected String createDate;
 
     /**
      * 最后修改时间
