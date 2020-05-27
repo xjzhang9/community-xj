@@ -1,5 +1,6 @@
 package com.xjzhang.community.dao;
 
+import com.xjzhang.community.entry.dto.UserInfoDto;
 import com.xjzhang.community.entry.model.UserModel;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -8,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserMapper {
-        int insertUser(UserModel userModel);
+        int insertUser(UserInfoDto userInfoDto);
 
-        UserModel selectUserByAccountId(String accountId);
+        UserModel selectUserByToken(String token);
 }

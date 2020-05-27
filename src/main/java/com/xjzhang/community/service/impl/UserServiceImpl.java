@@ -16,12 +16,12 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public int insertUser(UserInfoDto userInfoDto) {
-
-        return 0;
+        return mUserMapper.insertUser(userInfoDto);
     }
 
     @Override
     public UserInfoDto selectUserByToken(String token) {
-        return null;
+        return (UserInfoDto) mUserMapper.selectUserByToken(token);
+
     }
 }
