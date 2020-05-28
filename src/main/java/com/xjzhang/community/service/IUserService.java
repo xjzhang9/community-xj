@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
  * @date 2020/5/27 17:49
  *  用戶信息處理服務
  */
-@Service
 public interface IUserService {
     /**
      * 插入用戶信息

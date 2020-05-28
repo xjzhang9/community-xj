@@ -10,14 +10,14 @@
 		<result property="token" column="token" />
 		<result property="id" column="id" />
 	</resultMap>
-    <insert id="inserUser" parameterType="com.xjzhang.community.entry.model.UserModel">
-		insert into t_user
+    <insert id="insertUser" parameterType="com.xjzhang.community.entry.dto.UserInfoDto">
+		insert into COMMUNITY.TB_USER
 		(ACCOUNT_ID, NAME, TOKEN, CREATE_DATE, LAST_MODIFY_DATE, IDS)
 		values
-		(#{accountId},#{name},#{token},#{createDate},#{last_modify_date}, #{ids})
+		(#{accountId},#{name},#{token},#{createDate},#{lastModifyDate}, #{ids})
 	</insert>
 
-	<select id="selectUser" resultMap="userModel">
-		select * from tb_user wher account_id = #{accountId}
+	<select id="selectUserByToken" resultMap="userModel">
+		select * from COMMUNITY.TB_USER where token = #{token}
 	</select>
 </mapper>

@@ -9,7 +9,17 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserMapper {
+        /**
+         * 插入用户信息
+         * @param userInfoDto
+         * @return
+         */
         int insertUser(UserInfoDto userInfoDto);
 
+        /**
+         * 根据token查询用户信息
+         * @param token
+         * @return
+         */
         UserModel selectUserByToken(String token);
 }
