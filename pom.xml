@@ -56,11 +56,14 @@
             <version>1.2.17</version>
         </dependency>
 
-        <!--h2数据库       -->
+        <!--mysql数据库       -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
         <!--使用mybatis操作数据库-->
@@ -68,7 +71,7 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.2</version>
+            <version>2.1.1</version>
         </dependency>
 
         <dependency>

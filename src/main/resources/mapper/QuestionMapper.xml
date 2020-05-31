@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjzhang.community.dao.QuestionMapper">
+    <resultMap id="questionModel" type="com.xjzhang.community.entry.dto.QuestionDto">
+        <association property="user" javaType="com.xjzhang.community.entry.model.User">
+            <result property="name" column="name"/>
+            <result property="avatarUrl" column="avatar_url"/>
+        </association>
+    </resultMap>
+
+    <insert id="create" parameterType="com.xjzhang.community.entry.model.Question">
+		insert into tb_question
+		(tittle, description, create_date, last_modify_date, creator, commit_count, view_count, like_count, tag)
+		values
+		(#{tittle},#{description},#{createDate},#{lastModifyDate}, #{creator}, #{commitCount}, #{viewCount}, #{likeCount}, #{tag})
+	</insert>
+
+    <select id="selectQuestion" resultMap="questionModel">
+		select tittle, description, create_date, last_modify_date, creator, commit_count,  view_count, like_count, tag, B.name, B.avatar_url from tb_question A  left join tb_user B on  A.creator =  B.account_id
+	</select>
+</mapper>

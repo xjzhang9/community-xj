@@ -1,7 +1,7 @@
 package com.xjzhang.community.service.impl;
 
 import com.xjzhang.community.dao.UserMapper;
-import com.xjzhang.community.entry.dto.UserInfoDto;
+import com.xjzhang.community.entry.model.User;
 import com.xjzhang.community.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,12 +18,14 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
-    public int insertUser(UserInfoDto userInfoDto) {
-        return userMapper.insertUser(userInfoDto);
+    public int insertUser(User user) {
+        return userMapper.insertUser((User) user);
     }
 
     @Override
-    public UserInfoDto selectUserByToken(String token) {
-        return (UserInfoDto) userMapper.selectUserByToken(token);
+    public User selectUserByToken(String token) {
+        User user = userMapper.selectUserByToken(token);
+
+        return user;
     }
 }

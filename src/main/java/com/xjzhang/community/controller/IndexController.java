@@ -1,14 +1,16 @@
 package com.xjzhang.community.controller;
 
-import com.xjzhang.community.entry.dto.UserInfoDto;
+import com.xjzhang.community.entry.dto.QuestionDto;
+import com.xjzhang.community.entry.model.User;
+import com.xjzhang.community.service.IPublishService;
 import com.xjzhang.community.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author xjzhang
@@ -19,6 +21,9 @@ public class IndexController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IPublishService publishService;
+
     @GetMapping("/")
     public String index(HttpServletRequest req) {
         Cookie[] cookies =  req.getCookies();
@@ -27,9 +32,14 @@ public class IndexController {
                 String cookieName = cookie.getName();
               if ("token".equals(cookieName)) {
                   String token = cookie.getValue();
-                  UserInfoDto userInfoDto = userService.selectUserByToken(token);
+                  User user = userService.selectUserByToken(token);
                   // 通过session返回用户信息，前端展示
-                  req.getSession().setAttribute("userinfo", userInfoDto);
+                  HttpSession httpSession = req.getSession();
+                  httpSession.setAttribute("userinfo", user);
+                  if (user != null) {
+                      List<QuestionDto> questionDtoList = publishService.selectQuestion();
+                      httpSession.setAttribute("questions", questionDtoList);
+                  }
               }
             }
         }

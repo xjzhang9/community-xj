@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjzhang.community.dao.UserMapper">
-	<resultMap id="userModel" type="com.xjzhang.community.entry.model.UserModel">
-		<id property="accountId" column="account_id"/>
-		<result property="name" column="name" />
-		<result property="ids" column="ids" />
-		<result property="createDate" column="create_date" />
-		<result property="lastModifyDate" column="last_modify_date" />
-		<result property="token" column="token" />
-		<result property="id" column="id" />
-	</resultMap>
-    <insert id="insertUser" parameterType="com.xjzhang.community.entry.dto.UserInfoDto">
-		insert into COMMUNITY.TB_USER
-		(ACCOUNT_ID, NAME, TOKEN, CREATE_DATE, LAST_MODIFY_DATE, IDS)
+    <insert id="insertUser" parameterType="com.xjzhang.community.entry.model.User">
+		insert into tb_user
+		(ACCOUNT_ID, NAME, TOKEN, CREATE_DATE, LAST_MODIFY_DATE, IDS,avatar_url)
 		values
-		(#{accountId},#{name},#{token},#{createDate},#{lastModifyDate}, #{ids})
+		(#{accountId},#{name},#{token},#{createDate},#{lastModifyDate}, #{ids}, #{avatarUrl})
 	</insert>
 
-	<select id="selectUserByToken" resultMap="userModel">
-		select * from COMMUNITY.TB_USER where token = #{token}
+    <select id="selectUserByToken" resultType="com.xjzhang.community.entry.model.User">
+		select * from tb_user where token = #{token}
 	</select>
 </mapper>

@@ -1,14 +1,10 @@
-package com.xjzhang.community.entry.dto;
-
-import com.xjzhang.community.entry.model.UserModel;
+package com.xjzhang.community.entry.model;
 
 /**
- * 用户信息传输
+ * 用户信息，对应数据库表
  * @author xjzhang
- * @version 1.0
- * @date 2020/5/27 17:55
  */
-public class UserInfoDto {
+public class User {
     private int id;
     /**
      *  账号
@@ -29,6 +25,11 @@ public class UserInfoDto {
      * 个人简介
      */
     protected String ids;
+
+    /**
+     * 头像
+     */
+    protected String avatarUrl;
 
     /**
      * 创建时间
@@ -80,6 +81,14 @@ public class UserInfoDto {
         this.ids = ids;
     }
 
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
     public String getCreateDate() {
         return createDate;
     }
@@ -94,5 +103,19 @@ public class UserInfoDto {
 
     public void setLastModifyDate(String lastModifyDate) {
         this.lastModifyDate = lastModifyDate;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", accountId='" + accountId + '\'' +
+                ", name='" + name + '\'' +
+                ", token='" + token + '\'' +
+                ", ids='" + ids + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", createDate='" + createDate + '\'' +
+                ", lastModifyDate='" + lastModifyDate + '\'' +
+                '}';
     }
 }

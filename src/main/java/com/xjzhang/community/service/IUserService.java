@@ -1,8 +1,5 @@
 package com.xjzhang.community.service;
-
-import com.xjzhang.community.entry.dto.UserInfoDto;
-import com.xjzhang.community.entry.model.UserModel;
-import org.springframework.stereotype.Service;
+import com.xjzhang.community.entry.model.User;
 
 /**
  * @author xjzhang
@@ -13,15 +10,15 @@ import org.springframework.stereotype.Service;
 public interface IUserService {
     /**
      * 插入用戶信息
-     * @param userInfoDto 用戶信息
+     * @param user 用戶信息
      * @return 返回插入條數
      */
-    int insertUser(UserInfoDto userInfoDto);
+    int insertUser(User user);
 
     /**
      * 根據token查詢用戶信息
      * @param token
      * @return 返回用戶信息
      */
-    UserInfoDto selectUserByToken(String token);
+    User selectUserByToken(String token);
 }

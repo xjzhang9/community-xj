@@ -3,19 +3,17 @@
 <head>
     <title>发布-效坛社区</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+
+    <link th:href="@{/static/css/publish.css}" rel="stylesheet">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/publish.css">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -57,31 +55,36 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="row common_margin content" >
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
-        <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"/>发起</h2>
-        <hr/>
-        <form>
-            <div class="form-group">
-                <label for="title">问题标题(简单扼要):</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="问题标题...">
-            </div>
-            <div class="form-group">
-                <label for="title">问题补充(必填，请参考右侧提示):</label>
-                <textarea class="form-control" rows="10" cols="30" id="description" name="description" placeholder="问题补充..."></textarea>
-            </div>
-            <div class="form-group">
-                <label for="tag">添加标签:</label>
-                <input type="text" class="form-control" id="tag" placeholder="创建或搜索添加新话题...">
-            </div>
-            <button type="button" class="btn btn-success sumbit_button">发布</button>
-        </form>
-    </div>
-    <div class="col-xs-12 col-sm-12  col-md-12 col-lg-3 right-content">
-        <h3>问题发起指南</h3>
-        • 问题标题: 请用精简的语言描述您发布的问题，不超过25字 <br>
-        • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料<br>
-        • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字<br>
+<div class="container-fluid publish_content">
+    <div class="row">
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <h2 style="display: inline-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"/>发起</h2>
+            <span style="margin-left: 50px;color: red" th:text="${error}"/>
+            <hr/>
+            <form action="/publish" method="post">
+                <div class="form-group">
+                    <label for="tittle">问题标题(简单扼要):</label>
+                    <input type="text" class="form-control" id="tittle" name="tittle" placeholder="问题标题..."
+                           th:value="${tittle}">
+                </div>
+                <div class="form-group">
+                    <label for="description">问题补充(必填，请参考右侧提示):</label>
+                    <textarea class="form-control" rows="10" cols="30" id="description" name="description"
+                              placeholder="问题补充..." th:text="${description}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tag">添加标签:</label>
+                    <input type="text" class="form-control" id="tag" name="tag" placeholder="创建或搜索添加新话题..." th:value="${tag}">
+                </div>
+                <button type="submit" class="btn btn-success submit_button">发布</button>
+            </form>
+        </div>
+        <div class="col-xs-3 col-sm-3  col-md-3 col-lg-3 right-content">
+            <h3>问题发起指南</h3>
+            • 问题标题: 请用精简的语言描述您发布的问题，不超过25字 <br>
+            • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料<br>
+            • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字<br>
+        </div>
     </div>
 </div>
 </body>

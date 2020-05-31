@@ -1,16 +1,17 @@
-.common_margin{
-    margin: 20px 40px 20px 40px;
-}
 
 body {
-    background-color: #efefef;
+    background-color: #efefef !important;
 }
 
-.content{
-    background-color: #ffffff;
+.publish_content {
+    margin: 20px 40px 20px 40px !important;
+    background-color: white;
 }
 
-.sumbit_button {
+.submit_button {
     float: right;
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
 }
+
+
+
