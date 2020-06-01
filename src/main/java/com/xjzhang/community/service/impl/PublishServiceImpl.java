@@ -33,14 +33,13 @@ public class PublishServiceImpl implements IPublishService {
 
     @Override
     public void create(Question question) {
-        question.setCreateDate(System.currentTimeMillis() + "");
-        question.setLastModifyDate(System.currentTimeMillis() + "");
+        question.setCreateDate(System.currentTimeMillis());
+        question.setLastModifyDate(System.currentTimeMillis());
         questionMapper.create(question);
     }
 
     @Override
     public List<QuestionDto> selectQuestion() {
-
-        return null;
+        return questionMapper.selectQuestion();
     }
 }

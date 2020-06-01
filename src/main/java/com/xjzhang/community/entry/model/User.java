@@ -34,12 +34,12 @@ public class User {
     /**
      * 创建时间
      */
-    protected String createDate;
+    protected Long createDate;
 
     /**
      * 最后修改时间
      */
-    private String lastModifyDate;
+    private Long lastModifyDate;
 
     public int getId() {
         return id;
@@ -89,19 +89,19 @@ public class User {
         this.avatarUrl = avatarUrl;
     }
 
-    public String getCreateDate() {
+    public Long getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Long createDate) {
         this.createDate = createDate;
     }
 
-    public String getLastModifyDate() {
+    public Long getLastModifyDate() {
         return lastModifyDate;
     }
 
-    public void setLastModifyDate(String lastModifyDate) {
+    public void setLastModifyDate(Long lastModifyDate) {
         this.lastModifyDate = lastModifyDate;
     }
 

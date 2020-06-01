@@ -3,12 +3,13 @@ body {
     background-color: #efefef !important;
 }
 
-.publish_content {
+.publish-content {
     margin: 20px 40px 20px 40px !important;
     background-color: white;
+    height: 100%;
 }
 
-.submit_button {
+.submit-button {
     float: right;
     margin-bottom: 15px !important;
 }

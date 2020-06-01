@@ -62,8 +62,8 @@ public class OauthController {
             user.setIds(githubOauthUserDto.getBio());
             user.setName(githubOauthUserDto.getName());
             user.setAvatarUrl(githubOauthUserDto.getAvatar_url());
-            user.setCreateDate(System.currentTimeMillis() + "");
-            user.setLastModifyDate(System.currentTimeMillis() + "");
+            user.setCreateDate(System.currentTimeMillis());
+            user.setLastModifyDate(System.currentTimeMillis());
             user.setToken(UUID.randomUUID()+"");
             userService.insertUser(user);
 

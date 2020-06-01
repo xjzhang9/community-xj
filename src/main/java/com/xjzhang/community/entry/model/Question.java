@@ -21,12 +21,12 @@ public class Question {
     /**
      * 问题创建时间
      */
-    private String createDate;
+    private Long createDate;
 
     /**
      * 问题修改时间
      */
-    private String lastModifyDate;
+    private Long lastModifyDate;
 
     /**
      * 创建者
@@ -69,19 +69,19 @@ public class Question {
         this.description = description;
     }
 
-    public String getCreateDate() {
+    public Long getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Long createDate) {
         this.createDate = createDate;
     }
 
-    public String getLastModifyDate() {
+    public Long getLastModifyDate() {
         return lastModifyDate;
     }
 
-    public void setLastModifyDate(String lastModifyDate) {
+    public void setLastModifyDate(Long lastModifyDate) {
         this.lastModifyDate = lastModifyDate;
     }
 

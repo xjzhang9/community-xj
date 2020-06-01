@@ -17,5 +17,9 @@ public interface IPublishService {
      */
      void create(Question question);
 
+    /**
+     * 查询问题列表
+     * @return
+     */
      List<QuestionDto> selectQuestion();
 }
