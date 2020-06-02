@@ -10,7 +10,9 @@
         <result property="viewCount" column="view_count"/>
         <result property="likeCount" column="like_count"/>
         <result property="tag" column="tag"/>
+        <result property="qid" column="qid"/>
         <association property="user" javaType="com.xjzhang.community.entry.model.User">
+            <result property="id" column="id"/>
             <result property="name" column="name"/>
             <result property="avatarUrl" column="avatar_url"/>
         </association>
@@ -24,6 +26,6 @@
 	</insert>
 
     <select id="selectQuestion" resultMap="questionModel">
-		select A.tittle, A.description, A.create_date, A.last_modify_date, A.creator, A.commit_count,  A.view_count, A.like_count, A.tag, B.name, B.avatar_url from tb_question A  left join tb_user B on  A.creator =  B.account_id
+		select A.id qid, A.tittle, A.description, A.create_date, A.last_modify_date, A.creator, A.commit_count,  A.view_count, A.like_count, A.tag, B.id, B.name, B.avatar_url from tb_question A  left join tb_user B on  A.creator =  B.account_id
 	</select>
 </mapper>

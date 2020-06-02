@@ -59,8 +59,9 @@
 <div class="container-fluid publish-content">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
-            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"/>发现</h2> <hr/>
-            <div th:each="question:${session.questions}">
+            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"/>发现</h2>
+            <hr/>
+            <div th:each="question:${session.questions.getList()}">
                 <div class="media">
                     <div class="media-left media-middle">
                         <a href="#">
@@ -79,18 +80,28 @@
             </div>
             <nav aria-label="Page navigation" style="float: right">
                 <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
+                    <li th:if="${session.questions.isHasPreviousPage()} and ${session.questions.getPageNum()} gt 5">
+                        <a th:href="'/?pageIndex=' + ${session.questions.getPageNum() - 1} + '&prev=true'" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
+
+                    <li th:if="not ${session.questions.isHasPreviousPage()} or ${session.questions.getPageNum()} le 5">
+                        <a th:href="'/?pageIndex=' + ${session.questions.getPageNum()}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li th:each="pageIndex:${#numbers.sequence(session.startPage, session.endPage)}">
+                        <a th:href="'/?pageIndex=' + ${pageIndex}"  th:text="${pageIndex}"></a>
+                    </li>
+
+                    <li th:if="${session.questions.isHasNextPage()} and ${session.questions.getPages() - session.questions.getPageNum()} gt 5">
+                        <a th:href="'/?pageIndex=' + ${session.questions.getPageNum() + 1} + '&next=true'" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li th:if="(not ${session.questions.isHasNextPage()}) or ${session.questions.getPages() - session.questions.getPageNum()} le 5"  th:id>
+                        <a th:href="'/?pageIndex=' + ${session.questions.getPageNum()}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
